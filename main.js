@@ -1,6 +1,7 @@
 const btpressed = document.getElementById('pressed');
 const highscr = document.getElementById('hsc');
 const curnscr = document.getElementById('csc');
+const rchance = document.getElementById('rchance');
 
 let counter = 0;
 let high = 0;
@@ -25,6 +26,7 @@ function handleButtonClick(event) {
 function updateScore() {
   document.querySelector('#display').querySelector("#curnscr").innerText = counter;
   document.querySelector('#display').querySelector("#highscr").innerText = high;
+  document.querySelector('#display').querySelector("#rchance").innerText = chance;
 }
 
 btpressed.addEventListener('click', handleButtonClick);
