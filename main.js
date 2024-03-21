@@ -6,10 +6,11 @@ const rchance = document.getElementById('rchance');
 let counter = 0;
 let high = 0;
 let chance = 0;
+let kbpres = 0;
 
-/**/
+/* Cookies function */
 
-// Function to set a cookie
+// Updates de value of the High Score cookie
 function setCookie(name, value) {
   document.cookie = `${name}=${value}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
 }
@@ -63,8 +64,14 @@ function updateScore() {
 btpressed.addEventListener('click', handleButtonClick);
 
 document.addEventListener('keydown', function(event) {
-    if (event.code === 'Space') {
-      event.preventDefault();
-      document.getElementById('pressed').click();
-    }
+  if (event.code === 'Space')
+    kbpres++;
+  if (kbpres == 1)
+    document.getElementById('pressed').click();
+  if (event.code === 'KeyP')
+    document.getElementById('pressed').click();
+});
+
+document.addEventListener('keyup', function(event) {
+  kbpres = 0;
 });
