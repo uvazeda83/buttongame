@@ -9,15 +9,16 @@
 <body>
     <div class="center">
         <div id="display" class="scoredisplay">
-            <h1>SCORE: <span id="curnscr"></span></h1>
+            <h1>SCORE: <span id="curnscr">0</span></h1>
             <br>
-            <h1>HIGHSCORE: <span id="highscr"></span></h1>
+            <h1>HIGHSCORE: <span id="highscr">0</span></h1>
             <br>
-            <h1>RESET CHANCE: <span id="rchance"></span>%</h1>
+            <h1>RESET CHANCE: <span id="rchance">0</span>%</h1>
         </div>
         <button id="pressed" class="button"></button>
     </div>
     <div class="sig">por @tonasventura (no twitter)</div>
+    <body onload="checkCookie()"></body>
 <script src="main.js"></script>
 </body>
 </html>

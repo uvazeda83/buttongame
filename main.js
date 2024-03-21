@@ -7,10 +7,40 @@ let counter = 0;
 let high = 0;
 let chance = 0;
 
+/**/
+
+// Function to set a cookie
+function setCookie(name, value) {
+  document.cookie = `${name}=${value}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+}
+
+// Function to get a cookie
+function getCookie(name) {
+  const cookies = document.cookie.split('; ');
+  for (let cookie of cookies) {
+    const [cookieName, cookieValue] = cookie.split('=');
+    if (cookieName === name) {
+      return cookieValue;
+    }
+  }
+  return null;
+}
+
+// Function to upadte the high score when the pages load
+function checkCookie() {
+  const highScoreCookie = getCookie('highScore');
+  if (highScoreCookie) {
+    high = parseInt(highScoreCookie);
+    updateScore();
+  }
+}
+
+/**/
+
 function handleButtonClick(event) {
   counter++;
   chance++;
-  const randomNumber = Math.floor(Math.random() * 100) + 1;
+  const randomNumber = Math.floor(Math.random() * 100);
 
   if (randomNumber < chance) {
     counter = 0;
@@ -18,6 +48,7 @@ function handleButtonClick(event) {
   }
   if (counter >= high) {
     high = counter;
+    setCookie('highScore', high);
   }
 
   updateScore();
