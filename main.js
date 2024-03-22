@@ -64,10 +64,11 @@ function updateScore() {
 btpressed.addEventListener('click', handleButtonClick);
 
 document.addEventListener('keydown', function(event) {
-  if (event.code === 'Space')
+  if (event.code === 'Space') {
     kbpres++;
-  if (kbpres == 1)
-    document.getElementById('pressed').click();
+    if (kbpres == 1)
+      document.getElementById('pressed').click();
+  }
   if (event.code === 'KeyP')
     document.getElementById('pressed').click();
 });
